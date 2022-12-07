@@ -17,29 +17,29 @@
         
         <StackPanel HorizontalAlignment="Left" Width="500" Margin="10 50">
             
-            <TextBlock Text="ФИО" FontSize="15"/>
-            <TextBox Text="{Binding FullName}"
+            <TextBlock Text="ФИО" Margin="1" FontSize="15"/>
+            <TextBox  Margin="1" Text="{Binding FullName}"
                      MaxLength="50"
                      PreviewTextInput="FullName_PreviewTextInput" FontSize="15"/>
-            <TextBlock Text="Телефон" FontSize="15"/>
-            <TextBox Text="{Binding Phone}"
+            <TextBlock Margin="1"  Text="Телефон" FontSize="15"/>
+            <TextBox  Margin="1" Text="{Binding Phone}"
                      MaxLength="11"
                      PreviewTextInput="Digits_PreviewTextInput" FontSize="15"/>
-            <TextBlock Text="Адрес" FontSize="15"/>
-            <TextBox Text="{Binding Address}"
+            <TextBlock  Margin="1" Text="Адрес" FontSize="15"/>
+            <TextBox  Margin="1" Text="{Binding Address}"
                      MaxLength="150" FontSize="15"/>
-            <TextBlock Text="Должность" FontSize="15"/>
-            <ComboBox x:Name="CBPosts"
+            <TextBlock Margin="1"  Text="Должность" FontSize="15"/>
+            <ComboBox Margin="1"  x:Name="CBPosts"
                       DisplayMemberPath="Name"
                       SelectedItem="{Binding Post}" FontSize="15"/>
-            <TextBlock Text="День рождения" FontSize="15"/>
-            <DatePicker SelectedDate="{Binding Birthday}" FontSize="15"/>
-            <TextBlock Text="Зарплата" FontSize="15"/>
-            <TextBox Text="{Binding Salary}"
+            <TextBlock Margin="1"  Text="День рождения" FontSize="15"/>
+            <DatePicker  Margin="1" SelectedDate="{Binding Birthday}" FontSize="15"/>
+            <TextBlock  Margin="1" Text="Зарплата" FontSize="15"/>
+            <TextBox  Margin="1" Text="{Binding Salary}"
                      MaxLength="7"
                      PreviewTextInput="Digits_PreviewTextInput" FontSize="15"/>
-            <TextBlock Text="Пароль" FontSize="15"/>
-            <TextBox Text="{Binding Password}"
+            <TextBlock  Margin="1" Text="Пароль" FontSize="15"/>
+            <TextBox  Margin="1" Text="{Binding Password}"
                      MaxLength="50" FontSize="15"/>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="BCancel" VerticalAlignment="Top" Margin="0 8"
