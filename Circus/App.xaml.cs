@@ -14,7 +14,7 @@ namespace Circus
     /// </summary>
     public partial class App : Application
     {
-        public static circusKAMALOV326Entities DB = new circusKAMALOV326Entities();
+        public static circusKAMALOV326Entities1 DB = new circusKAMALOV326Entities1();
         public static Employee LoggedEmployee;
     }
 }
