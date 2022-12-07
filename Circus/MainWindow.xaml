@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Circus"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="450"
-        Width="800">
+        Height="650"
+        Width="1155">
     <Grid>
         <Frame x:Name="MainFrame"
                NavigationUIVisibility="Hidden" />

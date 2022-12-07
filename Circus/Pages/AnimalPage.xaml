@@ -9,27 +9,63 @@
       d:DesignWidth="800"
       Title="AnimalPage">
 
-    <Grid>
-        <StackPanel HorizontalAlignment="Center"
+    <Grid Background="gray">
+        <StackPanel Orientation="Vertical">
+            <StackPanel 
+                    Grid.ColumnSpan="2"
+                    Height="50">
+                <TextBlock Text="B  Y  B  Y          C I R C U S"
+                       HorizontalAlignment="Center"
+                       FontSize="30" 
+                       Foreground="Black"/>
+
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Margin="35" HorizontalAlignment="Center"
                     Width="300">
-            <TextBlock Text="Кличка" />
-            <TextBox Text="{Binding Name}" />
-            <TextBlock Text="Возраст" />
-            <TextBox Text="{Binding Age}" />
-            <TextBlock Text="Вид" />
-            <ComboBox x:Name="CBTypes"
+
+
+            <TextBlock FontSize="20"  Foreground="white"  Text="Кличка" />
+            <Border CornerRadius="7" Background="White" BorderBrush="Black" BorderThickness="1"
+        VerticalAlignment="Center" UseLayoutRounding="True">
+                <TextBox FontSize="20" BorderThickness="2" Text="{Binding Name}" />
+            </Border>
+            
+            <TextBlock FontSize="20" Text="Возраст" Foreground="white" />
+            <Border CornerRadius="7" Background="White" BorderBrush="Black" BorderThickness="1"
+        VerticalAlignment="Center" UseLayoutRounding="True">
+                <TextBox FontSize="20" BorderThickness="2" Text="{Binding Age}" />
+            </Border>
+
+            <TextBlock FontSize="20"  Foreground="white" Text="Вид" />
+            <Border CornerRadius="7" Background="White" BorderBrush="Black" BorderThickness="1"
+        VerticalAlignment="Center" UseLayoutRounding="True">
+                <ComboBox FontSize="20" x:Name="CBTypes"
                       DisplayMemberPath="Name"
                       SelectedItem="{Binding TypeAnimal}" />
-            <TextBlock Text="Клетка" />
-            <ComboBox x:Name="CBCages"
+            </Border>
+            <TextBlock FontSize="20"  Foreground="white" Text="Клетка" />
+            <Border CornerRadius="7" Background="White" BorderBrush="Black" BorderThickness="1"
+        VerticalAlignment="Center" UseLayoutRounding="True">
+                <ComboBox FontSize="20" x:Name="CBCages"
                       DisplayMemberPath="Name"
                       SelectedItem="{Binding Cage}" />
+            </Border>
+
             <Button x:Name="BSave"
                     Content="Сохранить"
-                    Click="BSave_Click" />
+                    Click="BSave_Click" 
+                    Background="White" Foreground="Black"
+                    Margin="5 30"
+                    Height="40"
+                    FontSize="20"/>
             <Button x:Name="BCancel"
                     Content="Отмена"
-                    Click="BCancel_Click" />
+                    Click="BCancel_Click" 
+                    Background="White" Foreground="Black"
+                    Margin="5 -12"
+                    Height="40"
+                    FontSize="20"/>
         </StackPanel>
     </Grid>
 </Page>

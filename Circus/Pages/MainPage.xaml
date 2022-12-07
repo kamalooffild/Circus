@@ -5,11 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Circus.Pages"
       mc:Ignorable="d"
-      d:DesignHeight="450"
-      d:DesignWidth="800"
+      d:DesignHeight="650"
+      d:DesignWidth="1155"
       Title="MainPage">
 
-    <Grid>
+    <Grid Background="Gray">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition />
@@ -18,23 +18,80 @@
             <ColumnDefinition Width="auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <StackPanel Background="Yellow"
+        <StackPanel 
                     Grid.ColumnSpan="2"
                     Height="50">
-            <TextBlock Text="C I R C U S"
+            <TextBlock Text="B  Y  B  Y          C I R C U S"
                        HorizontalAlignment="Center"
                        FontSize="30" 
                        Foreground="Black"/>
+
         </StackPanel>
-        <StackPanel Grid.Row="1" Width="150">
-            <Button x:Name="BAnimalManagement"
-                    Content="Управление животными"
-                    Click="BAnimalManagement_Click"
-                    Visibility="Collapsed" />
-            <Button x:Name="BEmployeeManagement"
-                    Content="Сотрудники"
-                    Click="BEmployeeManagement_Click" 
-                    Visibility="Collapsed"/>
+        <StackPanel Grid.Row="1" Width="200">
+            <TabControl Height="auto" Background="Gray">
+                <TabItem Background="Gray">
+                    <TabItem.Header >
+                        <Button x:Name="BAddAnimal"
+                    Content="Добавить животного"
+                    Click="BAddAnimal_Click"
+                    Background="gray"
+                    Height="25"
+                    Width="150"
+                    FontSize="12"
+                    Foreground="White"
+                    />
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem Background="Gray">
+                    <TabItem.Header>
+                        <Button x:Name="BAddEmployee"
+                    Content="Добавить сотрудника"
+                    Click="BEmployeeAdd_Click" 
+                    Background="gray"
+                    Margin="5"
+                    Width="150"
+                    Height="30"
+                    FontSize="12"
+                    Foreground="White"
+                    />
+                    </TabItem.Header>
+                    
+                </TabItem>
+                <TabItem Background="gray">
+                    <TabItem.Header>
+                        <Button x:Name="BAddProps"
+                    Content="Добавить реквизит"
+                    Click="BAddProps_Click"
+                    Background="gray"
+                    Margin="5"
+                    Width="150"
+                    Height="30"
+                    FontSize="12"
+                    Foreground="White"
+                    />
+                    </TabItem.Header>
+                    
+                </TabItem>
+                <TabItem  Background="gray">
+                    <TabItem.Header  >
+                        <Button x:Name="BAddPerformance"
+                    Content="Добавить выступление"
+                    Click="BAddPerformance_Click"
+                    Background="gray"
+                    Margin="5"
+                    Width="150"
+                    Height="30"
+                    FontSize="12"
+                    Foreground="White"
+                    />
+                    </TabItem.Header>
+                    
+                </TabItem>
+            </TabControl>
+            
+            
+            
+            
         </StackPanel>
         <Frame x:Name="MenuFrame"
                NavigationUIVisibility="Hidden"

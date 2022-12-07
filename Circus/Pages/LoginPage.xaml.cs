@@ -40,6 +40,11 @@ namespace Circus.Pages
             }
             App.LoggedEmployee = employee;
             NavigationService.Navigate(new MainPage());
+            if (employee.PostId != 1)
+            {
+                MessageBox.Show("Это приложение доступно только для Директора");
+                return;
+            }
         }
     }
 }
