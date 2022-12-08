@@ -41,7 +41,7 @@
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center" >
                     <TextBlock  Margin="2" Text="Актер" />
                     <ComboBox Margin="2"  x:Name="CBEmployees"
-                          DisplayMemberPath="Name"
+                          DisplayMemberPath="FullName"
                           Width="100" />
                 </StackPanel>
                 <StackPanel  VerticalAlignment="Center" Orientation="Vertical">

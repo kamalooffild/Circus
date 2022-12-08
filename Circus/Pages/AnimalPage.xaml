@@ -10,17 +10,7 @@
       Title="AnimalPage">
 
     <Grid Background="gray">
-        <StackPanel Orientation="Vertical">
-            <StackPanel 
-                    Grid.ColumnSpan="2"
-                    Height="50">
-                <TextBlock Text="B  Y  B  Y          C I R C U S"
-                       HorizontalAlignment="Center"
-                       FontSize="30" 
-                       Foreground="Black"/>
-
-            </StackPanel>
-        </StackPanel>
+        <StackPanel Orientation="Vertical"/>
         <StackPanel Margin="35" HorizontalAlignment="Center"
                     Width="300">
 
@@ -52,18 +42,20 @@
                       SelectedItem="{Binding Cage}" />
             </Border>
 
-            <Button x:Name="BSave"
-                    Content="Сохранить"
-                    Click="BSave_Click" 
-                    Background="White" Foreground="Black"
-                    Margin="5 30"
-                    Height="40"
-                    FontSize="20"/>
+            
             <Button x:Name="BCancel"
                     Content="Отмена"
                     Click="BCancel_Click" 
-                    Background="White" Foreground="Black"
-                    Margin="5 -12"
+                    Background="IndianRed" Foreground="Black"       
+                    Margin="5 25"
+                    Height="40"
+                    FontSize="20"/>
+            <Button x:Name="BSave"
+                    Content="Сохранить"
+                    Click="BSave_Click" 
+                    Background="LightGreen" Foreground="Black"
+                    Width="auto"
+                    Margin="5 -15"
                     Height="40"
                     FontSize="20"/>
         </StackPanel>

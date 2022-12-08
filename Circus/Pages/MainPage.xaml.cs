@@ -25,7 +25,23 @@ namespace Circus.Pages
         public MainPage()
         {
             InitializeComponent();
-
+            if (App.LoggedEmployee.PostId == (int)CircusPosts.Clown)
+            {
+                BAddEmployee.Visibility = Visibility.Collapsed;
+                BAddAnimal.Visibility = Visibility.Collapsed;
+                BAddPerformance.Visibility = Visibility.Collapsed;
+            }
+            if (App.LoggedEmployee.PostId == (int)CircusPosts.HR)
+            {
+                BAddPerformance.Visibility = Visibility.Collapsed;
+                BAddAnimal.Visibility = Visibility.Collapsed;
+                BAddProps.Visibility = Visibility.Collapsed;
+            }
+            if (App.LoggedEmployee.PostId == (int)CircusPosts.Trainer)
+            {
+                BAddEmployee.Visibility = Visibility.Collapsed;
+                BAddPerformance.Visibility = Visibility.Collapsed;
+            }
         }
 
 
@@ -44,11 +60,19 @@ namespace Circus.Pages
         private void BAddAnimal_Click(object sender, RoutedEventArgs e)
         {
             MenuFrame.Navigate(new AnimalPage(new Animal()));
+            
+
         }
 
         private void BAddPerformance_Click(object sender, RoutedEventArgs e)
         {
             MenuFrame.Navigate(new PerformancePage(new Performance()));
         }
+
+        private void BEditEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            MenuFrame.Navigate(new EmployeePage(new Employee()));
+        }
+        
     }
 }

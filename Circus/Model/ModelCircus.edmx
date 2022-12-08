@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище circusKAMALOV326Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище circusKAMALOV326Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Animal">
           <Key>
             <PropertyRef Name="Id" />
@@ -313,11 +313,69 @@
             <End Role="TimeTablePerformance" EntitySet="TimeTablePerformance" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="circusKAMALOV326Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="circusKAMALOV326Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Animal" EntityType="circusKAMALOV326Model.Animal" />
+          <EntitySet Name="Cell" EntityType="circusKAMALOV326Model.Cell" />
+          <EntitySet Name="Client" EntityType="circusKAMALOV326Model.Client" />
+          <EntitySet Name="Employee" EntityType="circusKAMALOV326Model.Employee" />
+          <EntitySet Name="Performance" EntityType="circusKAMALOV326Model.Performance" />
+          <EntitySet Name="Post" EntityType="circusKAMALOV326Model.Post" />
+          <EntitySet Name="Props" EntityType="circusKAMALOV326Model.Props" />
+          <EntitySet Name="PropsEmployee" EntityType="circusKAMALOV326Model.PropsEmployee" />
+          <EntitySet Name="SaleTicket" EntityType="circusKAMALOV326Model.SaleTicket" />
+          <EntitySet Name="sysdiagrams" EntityType="circusKAMALOV326Model.sysdiagrams" />
+          <EntitySet Name="TimeTablePerformance" EntityType="circusKAMALOV326Model.TimeTablePerformance" />
+          <EntitySet Name="TypeAnimal" EntityType="circusKAMALOV326Model.TypeAnimal" />
+          <EntitySet Name="TypeProps" EntityType="circusKAMALOV326Model.TypeProps" />
+          <AssociationSet Name="FK_Animal_Cell" Association="circusKAMALOV326Model.FK_Animal_Cell">
+            <End Role="Cell" EntitySet="Cell" />
+            <End Role="Animal" EntitySet="Animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Animal_TypeAnimal" Association="circusKAMALOV326Model.FK_Animal_TypeAnimal">
+            <End Role="TypeAnimal" EntitySet="TypeAnimal" />
+            <End Role="Animal" EntitySet="Animal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TimeTablePerformance_Animal" Association="circusKAMALOV326Model.FK_TimeTablePerformance_Animal">
+            <End Role="Animal" EntitySet="Animal" />
+            <End Role="TimeTablePerformance" EntitySet="TimeTablePerformance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaleTicket_Client" Association="circusKAMALOV326Model.FK_SaleTicket_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="SaleTicket" EntitySet="SaleTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Post" Association="circusKAMALOV326Model.FK_Employee_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropsEmployee_Employee" Association="circusKAMALOV326Model.FK_PropsEmployee_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="PropsEmployee" EntitySet="PropsEmployee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TimeTablePerformance_Employee" Association="circusKAMALOV326Model.FK_TimeTablePerformance_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="TimeTablePerformance" EntitySet="TimeTablePerformance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaleTicket_Performance" Association="circusKAMALOV326Model.FK_SaleTicket_Performance">
+            <End Role="Performance" EntitySet="Performance" />
+            <End Role="SaleTicket" EntitySet="SaleTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TimeTablePerformance_Performance" Association="circusKAMALOV326Model.FK_TimeTablePerformance_Performance">
+            <End Role="Performance" EntitySet="Performance" />
+            <End Role="TimeTablePerformance" EntitySet="TimeTablePerformance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Props_TypeProps" Association="circusKAMALOV326Model.FK_Props_TypeProps">
+            <End Role="TypeProps" EntitySet="TypeProps" />
+            <End Role="Props" EntitySet="Props" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropsEmployee_Props" Association="circusKAMALOV326Model.FK_PropsEmployee_Props">
+            <End Role="Props" EntitySet="Props" />
+            <End Role="PropsEmployee" EntitySet="PropsEmployee" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Animal">
           <Key>
             <PropertyRef Name="Id" />
@@ -327,9 +385,9 @@
           <Property Name="Age" Type="Int32" />
           <Property Name="TypeAnimalId" Type="Int32" />
           <Property Name="CellId" Type="Int32" />
-          <NavigationProperty Name="Cell" Relationship="Self.FK_Animal_Cell" FromRole="Animal" ToRole="Cell" />
-          <NavigationProperty Name="TypeAnimal" Relationship="Self.FK_Animal_TypeAnimal" FromRole="Animal" ToRole="TypeAnimal" />
-          <NavigationProperty Name="TimeTablePerformance" Relationship="Self.FK_TimeTablePerformance_Animal" FromRole="Animal" ToRole="TimeTablePerformance" />
+          <NavigationProperty Name="Cell" Relationship="circusKAMALOV326Model.FK_Animal_Cell" FromRole="Animal" ToRole="Cell" />
+          <NavigationProperty Name="TypeAnimal" Relationship="circusKAMALOV326Model.FK_Animal_TypeAnimal" FromRole="Animal" ToRole="TypeAnimal" />
+          <NavigationProperty Name="TimeTablePerformance" Relationship="circusKAMALOV326Model.FK_TimeTablePerformance_Animal" FromRole="Animal" ToRole="TimeTablePerformance" />
         </EntityType>
         <EntityType Name="Cell">
           <Key>
@@ -338,7 +396,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Square" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_Cell" FromRole="Cell" ToRole="Animal" />
+          <NavigationProperty Name="Animal" Relationship="circusKAMALOV326Model.FK_Animal_Cell" FromRole="Cell" ToRole="Animal" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -348,7 +406,7 @@
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="SaleTicket" Relationship="Self.FK_SaleTicket_Client" FromRole="Client" ToRole="SaleTicket" />
+          <NavigationProperty Name="SaleTicket" Relationship="circusKAMALOV326Model.FK_SaleTicket_Client" FromRole="Client" ToRole="SaleTicket" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -363,9 +421,9 @@
           <Property Name="Salary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Post" Relationship="Self.FK_Employee_Post" FromRole="Employee" ToRole="Post" />
-          <NavigationProperty Name="PropsEmployee" Relationship="Self.FK_PropsEmployee_Employee" FromRole="Employee" ToRole="PropsEmployee" />
-          <NavigationProperty Name="TimeTablePerformance" Relationship="Self.FK_TimeTablePerformance_Employee" FromRole="Employee" ToRole="TimeTablePerformance" />
+          <NavigationProperty Name="Post" Relationship="circusKAMALOV326Model.FK_Employee_Post" FromRole="Employee" ToRole="Post" />
+          <NavigationProperty Name="PropsEmployee" Relationship="circusKAMALOV326Model.FK_PropsEmployee_Employee" FromRole="Employee" ToRole="PropsEmployee" />
+          <NavigationProperty Name="TimeTablePerformance" Relationship="circusKAMALOV326Model.FK_TimeTablePerformance_Employee" FromRole="Employee" ToRole="TimeTablePerformance" />
         </EntityType>
         <EntityType Name="Performance">
           <Key>
@@ -376,8 +434,8 @@
           <Property Name="dateTime" Type="DateTime" Precision="3" />
           <Property Name="TicketPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TicketAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="SaleTicket" Relationship="Self.FK_SaleTicket_Performance" FromRole="Performance" ToRole="SaleTicket" />
-          <NavigationProperty Name="TimeTablePerformance" Relationship="Self.FK_TimeTablePerformance_Performance" FromRole="Performance" ToRole="TimeTablePerformance" />
+          <NavigationProperty Name="SaleTicket" Relationship="circusKAMALOV326Model.FK_SaleTicket_Performance" FromRole="Performance" ToRole="SaleTicket" />
+          <NavigationProperty Name="TimeTablePerformance" Relationship="circusKAMALOV326Model.FK_TimeTablePerformance_Performance" FromRole="Performance" ToRole="TimeTablePerformance" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
@@ -385,7 +443,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Post" FromRole="Post" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="circusKAMALOV326Model.FK_Employee_Post" FromRole="Post" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Props">
           <Key>
@@ -395,8 +453,8 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TypePropsId" Type="Int32" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="TypeProps" Relationship="Self.FK_Props_TypeProps" FromRole="Props" ToRole="TypeProps" />
-          <NavigationProperty Name="PropsEmployee" Relationship="Self.FK_PropsEmployee_Props" FromRole="Props" ToRole="PropsEmployee" />
+          <NavigationProperty Name="TypeProps" Relationship="circusKAMALOV326Model.FK_Props_TypeProps" FromRole="Props" ToRole="TypeProps" />
+          <NavigationProperty Name="PropsEmployee" Relationship="circusKAMALOV326Model.FK_PropsEmployee_Props" FromRole="Props" ToRole="PropsEmployee" />
         </EntityType>
         <EntityType Name="PropsEmployee">
           <Key>
@@ -405,8 +463,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmployeeId" Type="Int32" />
           <Property Name="PropsId" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_PropsEmployee_Employee" FromRole="PropsEmployee" ToRole="Employee" />
-          <NavigationProperty Name="Props" Relationship="Self.FK_PropsEmployee_Props" FromRole="PropsEmployee" ToRole="Props" />
+          <NavigationProperty Name="Employee" Relationship="circusKAMALOV326Model.FK_PropsEmployee_Employee" FromRole="PropsEmployee" ToRole="Employee" />
+          <NavigationProperty Name="Props" Relationship="circusKAMALOV326Model.FK_PropsEmployee_Props" FromRole="PropsEmployee" ToRole="Props" />
         </EntityType>
         <EntityType Name="SaleTicket">
           <Key>
@@ -415,14 +473,14 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PerformanceId" Type="Int32" />
           <Property Name="ClientId" Type="Int32" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_SaleTicket_Client" FromRole="SaleTicket" ToRole="Client" />
-          <NavigationProperty Name="Performance" Relationship="Self.FK_SaleTicket_Performance" FromRole="SaleTicket" ToRole="Performance" />
+          <NavigationProperty Name="Client" Relationship="circusKAMALOV326Model.FK_SaleTicket_Client" FromRole="SaleTicket" ToRole="Client" />
+          <NavigationProperty Name="Performance" Relationship="circusKAMALOV326Model.FK_SaleTicket_Performance" FromRole="SaleTicket" ToRole="Performance" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
@@ -437,9 +495,9 @@
           <Property Name="Time" Type="Time" Precision="7" />
           <Property Name="EmployeeId" Type="Int32" />
           <Property Name="AnimalID" Type="Int32" />
-          <NavigationProperty Name="Animal" Relationship="Self.FK_TimeTablePerformance_Animal" FromRole="TimeTablePerformance" ToRole="Animal" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_TimeTablePerformance_Employee" FromRole="TimeTablePerformance" ToRole="Employee" />
-          <NavigationProperty Name="Performance" Relationship="Self.FK_TimeTablePerformance_Performance" FromRole="TimeTablePerformance" ToRole="Performance" />
+          <NavigationProperty Name="Animal" Relationship="circusKAMALOV326Model.FK_TimeTablePerformance_Animal" FromRole="TimeTablePerformance" ToRole="Animal" />
+          <NavigationProperty Name="Employee" Relationship="circusKAMALOV326Model.FK_TimeTablePerformance_Employee" FromRole="TimeTablePerformance" ToRole="Employee" />
+          <NavigationProperty Name="Performance" Relationship="circusKAMALOV326Model.FK_TimeTablePerformance_Performance" FromRole="TimeTablePerformance" ToRole="Performance" />
         </EntityType>
         <EntityType Name="TypeAnimal">
           <Key>
@@ -447,7 +505,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_TypeAnimal" FromRole="TypeAnimal" ToRole="Animal" />
+          <NavigationProperty Name="Animal" Relationship="circusKAMALOV326Model.FK_Animal_TypeAnimal" FromRole="TypeAnimal" ToRole="Animal" />
         </EntityType>
         <EntityType Name="TypeProps">
           <Key>
@@ -455,11 +513,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Props" Relationship="Self.FK_Props_TypeProps" FromRole="TypeProps" ToRole="Props" />
+          <NavigationProperty Name="Props" Relationship="circusKAMALOV326Model.FK_Props_TypeProps" FromRole="TypeProps" ToRole="Props" />
         </EntityType>
         <Association Name="FK_Animal_Cell">
-          <End Role="Cell" Type="Self.Cell" Multiplicity="0..1" />
-          <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+          <End Type="circusKAMALOV326Model.Cell" Role="Cell" Multiplicity="0..1" />
+          <End Type="circusKAMALOV326Model.Animal" Role="Animal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cell">
               <PropertyRef Name="Id" />
@@ -470,8 +528,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Animal_TypeAnimal">
-          <End Role="TypeAnimal" Type="Self.TypeAnimal" Multiplicity="0..1" />
-          <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+          <End Type="circusKAMALOV326Model.TypeAnimal" Role="TypeAnimal" Multiplicity="0..1" />
+          <End Type="circusKAMALOV326Model.Animal" Role="Animal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeAnimal">
               <PropertyRef Name="Id" />
@@ -482,8 +540,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TimeTablePerformance_Animal">
-          <End Role="Animal" Type="Self.Animal" Multiplicity="0..1" />
-          <End Role="TimeTablePerformance" Type="Self.TimeTablePerformance" Multiplicity="*" />
+          <End Type="circusKAMALOV326Model.Animal" Role="Animal" Multiplicity="0..1" />
+          <End Type="circusKAMALOV326Model.TimeTablePerformance" Role="TimeTablePerformance" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Animal">
               <PropertyRef Name="Id" />
@@ -494,8 +552,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SaleTicket_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="SaleTicket" Type="Self.SaleTicket" Multiplicity="*" />
+          <End Type="circusKAMALOV326Model.Client" Role="Client" Multiplicity="0..1" />
+          <End Type="circusKAMALOV326Model.SaleTicket" Role="SaleTicket" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
               <PropertyRef Name="Id" />
@@ -506,8 +564,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Employee_Post">
-          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <End Type="circusKAMALOV326Model.Post" Role="Post" Multiplicity="0..1" />
+          <End Type="circusKAMALOV326Model.Employee" Role="Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Post">
               <PropertyRef Name="Id" />
@@ -518,8 +576,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PropsEmployee_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="PropsEmployee" Type="Self.PropsEmployee" Multiplicity="*" />
+          <End Type="circusKAMALOV326Model.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="circusKAMALOV326Model.PropsEmployee" Role="PropsEmployee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
@@ -530,8 +588,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TimeTablePerformance_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="TimeTablePerformance" Type="Self.TimeTablePerformance" Multiplicity="*" />
+          <End Type="circusKAMALOV326Model.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="circusKAMALOV326Model.TimeTablePerformance" Role="TimeTablePerformance" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employee">
               <PropertyRef Name="Id" />
@@ -542,8 +600,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SaleTicket_Performance">
-          <End Role="Performance" Type="Self.Performance" Multiplicity="0..1" />
-          <End Role="SaleTicket" Type="Self.SaleTicket" Multiplicity="*" />
+          <End Type="circusKAMALOV326Model.Performance" Role="Performance" Multiplicity="0..1" />
+          <End Type="circusKAMALOV326Model.SaleTicket" Role="SaleTicket" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Performance">
               <PropertyRef Name="Id" />
@@ -554,8 +612,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TimeTablePerformance_Performance">
-          <End Role="Performance" Type="Self.Performance" Multiplicity="0..1" />
-          <End Role="TimeTablePerformance" Type="Self.TimeTablePerformance" Multiplicity="*" />
+          <End Type="circusKAMALOV326Model.Performance" Role="Performance" Multiplicity="0..1" />
+          <End Type="circusKAMALOV326Model.TimeTablePerformance" Role="TimeTablePerformance" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Performance">
               <PropertyRef Name="Id" />
@@ -566,8 +624,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Props_TypeProps">
-          <End Role="TypeProps" Type="Self.TypeProps" Multiplicity="0..1" />
-          <End Role="Props" Type="Self.Props" Multiplicity="*" />
+          <End Type="circusKAMALOV326Model.TypeProps" Role="TypeProps" Multiplicity="0..1" />
+          <End Type="circusKAMALOV326Model.Props" Role="Props" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeProps">
               <PropertyRef Name="Id" />
@@ -578,8 +636,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PropsEmployee_Props">
-          <End Role="Props" Type="Self.Props" Multiplicity="0..1" />
-          <End Role="PropsEmployee" Type="Self.PropsEmployee" Multiplicity="*" />
+          <End Type="circusKAMALOV326Model.Props" Role="Props" Multiplicity="0..1" />
+          <End Type="circusKAMALOV326Model.PropsEmployee" Role="PropsEmployee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Props">
               <PropertyRef Name="Id" />
@@ -589,66 +647,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="circusKAMALOV326Entities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Animal" EntityType="Self.Animal" />
-          <EntitySet Name="Cell" EntityType="Self.Cell" />
-          <EntitySet Name="Client" EntityType="Self.Client" />
-          <EntitySet Name="Employee" EntityType="Self.Employee" />
-          <EntitySet Name="Performance" EntityType="Self.Performance" />
-          <EntitySet Name="Post" EntityType="Self.Post" />
-          <EntitySet Name="Props" EntityType="Self.Props" />
-          <EntitySet Name="PropsEmployee" EntityType="Self.PropsEmployee" />
-          <EntitySet Name="SaleTicket" EntityType="Self.SaleTicket" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="TimeTablePerformance" EntityType="Self.TimeTablePerformance" />
-          <EntitySet Name="TypeAnimal" EntityType="Self.TypeAnimal" />
-          <EntitySet Name="TypeProps" EntityType="Self.TypeProps" />
-          <AssociationSet Name="FK_Animal_Cell" Association="Self.FK_Animal_Cell">
-            <End Role="Cell" EntitySet="Cell" />
-            <End Role="Animal" EntitySet="Animal" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Animal_TypeAnimal" Association="Self.FK_Animal_TypeAnimal">
-            <End Role="TypeAnimal" EntitySet="TypeAnimal" />
-            <End Role="Animal" EntitySet="Animal" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TimeTablePerformance_Animal" Association="Self.FK_TimeTablePerformance_Animal">
-            <End Role="Animal" EntitySet="Animal" />
-            <End Role="TimeTablePerformance" EntitySet="TimeTablePerformance" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SaleTicket_Client" Association="Self.FK_SaleTicket_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="SaleTicket" EntitySet="SaleTicket" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_Post" Association="Self.FK_Employee_Post">
-            <End Role="Post" EntitySet="Post" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PropsEmployee_Employee" Association="Self.FK_PropsEmployee_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="PropsEmployee" EntitySet="PropsEmployee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TimeTablePerformance_Employee" Association="Self.FK_TimeTablePerformance_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="TimeTablePerformance" EntitySet="TimeTablePerformance" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SaleTicket_Performance" Association="Self.FK_SaleTicket_Performance">
-            <End Role="Performance" EntitySet="Performance" />
-            <End Role="SaleTicket" EntitySet="SaleTicket" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TimeTablePerformance_Performance" Association="Self.FK_TimeTablePerformance_Performance">
-            <End Role="Performance" EntitySet="Performance" />
-            <End Role="TimeTablePerformance" EntitySet="TimeTablePerformance" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Props_TypeProps" Association="Self.FK_Props_TypeProps">
-            <End Role="TypeProps" EntitySet="TypeProps" />
-            <End Role="Props" EntitySet="Props" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PropsEmployee_Props" Association="Self.FK_PropsEmployee_Props">
-            <End Role="Props" EntitySet="Props" />
-            <End Role="PropsEmployee" EntitySet="PropsEmployee" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -657,130 +656,130 @@
           <EntitySetMapping Name="Animal">
             <EntityTypeMapping TypeName="circusKAMALOV326Model.Animal">
               <MappingFragment StoreEntitySet="Animal">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Age" ColumnName="Age" />
-                <ScalarProperty Name="TypeAnimalId" ColumnName="TypeAnimalId" />
                 <ScalarProperty Name="CellId" ColumnName="CellId" />
+                <ScalarProperty Name="TypeAnimalId" ColumnName="TypeAnimalId" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cell">
             <EntityTypeMapping TypeName="circusKAMALOV326Model.Cell">
               <MappingFragment StoreEntitySet="Cell">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Square" ColumnName="Square" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="circusKAMALOV326Model.Client">
               <MappingFragment StoreEntitySet="Client">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="circusKAMALOV326Model.Employee">
               <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="PostId" ColumnName="PostId" />
-                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-                <ScalarProperty Name="Salary" ColumnName="Salary" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Performance">
             <EntityTypeMapping TypeName="circusKAMALOV326Model.Performance">
               <MappingFragment StoreEntitySet="Performance">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="dateTime" ColumnName="dateTime" />
-                <ScalarProperty Name="TicketPrice" ColumnName="TicketPrice" />
                 <ScalarProperty Name="TicketAmount" ColumnName="TicketAmount" />
+                <ScalarProperty Name="TicketPrice" ColumnName="TicketPrice" />
+                <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Post">
             <EntityTypeMapping TypeName="circusKAMALOV326Model.Post">
               <MappingFragment StoreEntitySet="Post">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Props">
             <EntityTypeMapping TypeName="circusKAMALOV326Model.Props">
               <MappingFragment StoreEntitySet="Props">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="TypePropsId" ColumnName="TypePropsId" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="TypePropsId" ColumnName="TypePropsId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PropsEmployee">
             <EntityTypeMapping TypeName="circusKAMALOV326Model.PropsEmployee">
               <MappingFragment StoreEntitySet="PropsEmployee">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
                 <ScalarProperty Name="PropsId" ColumnName="PropsId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SaleTicket">
             <EntityTypeMapping TypeName="circusKAMALOV326Model.SaleTicket">
               <MappingFragment StoreEntitySet="SaleTicket">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PerformanceId" ColumnName="PerformanceId" />
                 <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="PerformanceId" ColumnName="PerformanceId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="circusKAMALOV326Model.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TimeTablePerformance">
             <EntityTypeMapping TypeName="circusKAMALOV326Model.TimeTablePerformance">
               <MappingFragment StoreEntitySet="TimeTablePerformance">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PerformanceId" ColumnName="PerformanceId" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
                 <ScalarProperty Name="AnimalID" ColumnName="AnimalID" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="PerformanceId" ColumnName="PerformanceId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypeAnimal">
             <EntityTypeMapping TypeName="circusKAMALOV326Model.TypeAnimal">
               <MappingFragment StoreEntitySet="TypeAnimal">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypeProps">
             <EntityTypeMapping TypeName="circusKAMALOV326Model.TypeProps">
               <MappingFragment StoreEntitySet="TypeProps">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

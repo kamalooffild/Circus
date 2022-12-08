@@ -36,7 +36,7 @@
                     Background="IndianRed" Foreground="Black"
                     Height="40"
                     HorizontalAlignment="Left"
-                    Width="170"
+                    Width="130"
                     FontSize="20"
                     Click="BCancel_Click" />
                 <Button x:Name="BSave"
@@ -44,10 +44,24 @@
                     Content="Сохранить" HorizontalAlignment="Right"
                     Background="LightGreen" Foreground="Black"
                     Height="40"
-                    Width="200"
+                    Width="170"
                     FontSize="20"
                     Click="BSave_Click" />
+                
             </StackPanel>
+            <GroupBox FontSize="20" Height="120" Foreground="White" >
+                <GroupBox.Header>
+                    Примечание
+                </GroupBox.Header>
+                
+                <TextBlock FontSize="16" 
+                           FontStretch="Expanded"
+                           Foreground="White"
+                           TextWrapping="Wrap">
+                    При добавлении нового реквизита 
+                    удостовертесь в наличии Названия, Назначения и Фотографии
+                </TextBlock>
+            </GroupBox>
         </StackPanel>
         <StackPanel Margin="5" Width="350" 
                     Grid.Column="1">
