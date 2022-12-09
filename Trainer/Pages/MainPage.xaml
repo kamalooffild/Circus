@@ -5,11 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Circus.Pages"
       mc:Ignorable="d"
-      d:DesignHeight="450"
-      d:DesignWidth="800"
+      d:DesignHeight="650"
+      d:DesignWidth="1155"
       Title="MainPage">
 
-    <Grid>
+    <Grid Background="Gray">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition />
@@ -18,26 +18,59 @@
             <ColumnDefinition Width="auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <StackPanel Background="Bisque"
+        <StackPanel Background="LightGray"
                     Grid.ColumnSpan="2"
                     Height="50">
-            <TextBlock Text="CIRCUS"
+            <TextBlock Text="B  Y  B  Y          C I R C U S"
                        HorizontalAlignment="Center"
-                       FontSize="30" />
+                       FontSize="30" 
+                       Foreground="Black"/>
+
         </StackPanel>
-        <StackPanel Grid.Row="1" Width="150">
-            <Button x:Name="BAnimalManagement"
-                    Content="Управление животными"
-                    Click="BAnimalManagement_Click"
-                    Visibility="Collapsed" />
-            <Button x:Name="BEmployeeManagement"
-                    Content="Сотрудники"
-                    Click="BEmployeeManagement_Click" 
-                    Visibility="Collapsed"/>
+        <StackPanel Background="DimGray" Grid.Row="1" Width="200">
+            <Button Margin="10" x:Name="BAddAnimal"
+                    Content="Добавить животного"
+                    Click="BAddAnimal_Click"
+                    Background="gray"
+                    Height="35"
+                    Width="175"
+                    FontSize="14"
+                    Foreground="White"
+                    />
+            <Button Margin="10" x:Name="BAddEmployee"
+                    Content="Добавить сотрудника"
+                    Click="BEmployeeAdd_Click" 
+                    Background="gray"
+                    Width="175"
+                    Height="35"
+                    FontSize="14"
+                    Foreground="White"
+                    />
+            <Button Margin="10" x:Name="BAddProps"
+                    Content="Добавить реквизит"
+                    Click="BAddProps_Click"
+                    Background="gray"
+                    Width="175"
+                    Height="35"
+                    FontSize="14"
+                    Foreground="White"
+                    />
+            <Button Margin="10" x:Name="BAddPerformance"
+                    Content="Добавить выступление"
+                    Click="BAddPerformance_Click"
+                    Background="gray"
+                    Width="175"
+                    Height="35"
+                    FontSize="14"
+                    Foreground="White"
+                    />
+
         </StackPanel>
         <Frame x:Name="MenuFrame"
                NavigationUIVisibility="Hidden"
-               Grid.Column="1"
-               Grid.Row="1" />
+               Grid.Row="1" Margin="0,0,0,0" Grid.Column="1" />
     </Grid>
 </Page>
+
+
+

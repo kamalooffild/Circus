@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HR_MANAGER.Properties
+namespace HR_Manager.Properties
 {
 
 

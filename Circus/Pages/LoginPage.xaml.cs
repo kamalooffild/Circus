@@ -22,8 +22,11 @@ namespace Circus.Pages
     {
         public LoginPage()
         {
+
             InitializeComponent();
+            
         }
+
 
         private void BLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -38,6 +41,7 @@ namespace Circus.Pages
                 MessageBox.Show("Пароль неверный");
                 return;
             }
+            
             App.LoggedEmployee = employee;
             NavigationService.Navigate(new MainPage());
 

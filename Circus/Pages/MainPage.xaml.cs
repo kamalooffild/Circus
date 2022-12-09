@@ -28,12 +28,14 @@ namespace Circus.Pages
             if (App.LoggedEmployee.PostId == (int)CircusPosts.Clown)
             {
                 BAddEmployee.Visibility = Visibility.Collapsed;
-                BAddAnimal.Visibility = Visibility.Collapsed;
                 BAddPerformance.Visibility = Visibility.Collapsed;
+                BAddAnimal.Visibility = Visibility.Collapsed;
+                BAddProps.Visibility = Visibility.Visible;
             }
             if (App.LoggedEmployee.PostId == (int)CircusPosts.HR)
             {
-                BAddPerformance.Visibility = Visibility.Collapsed;
+                BAddEmployee.Visibility = Visibility.Visible;
+                BAddPerformance.Visibility = Visibility.Visible;
                 BAddAnimal.Visibility = Visibility.Collapsed;
                 BAddProps.Visibility = Visibility.Collapsed;
             }
@@ -41,6 +43,15 @@ namespace Circus.Pages
             {
                 BAddEmployee.Visibility = Visibility.Collapsed;
                 BAddPerformance.Visibility = Visibility.Collapsed;
+                BAddAnimal.Visibility = Visibility.Visible;
+                BAddProps.Visibility = Visibility.Visible;
+            }
+            if (App.LoggedEmployee.PostId == (int)CircusPosts.Director)
+            {
+                BAddEmployee.Visibility = Visibility.Visible;
+                BAddPerformance.Visibility = Visibility.Visible;
+                BAddAnimal.Visibility = Visibility.Visible;
+                BAddProps.Visibility = Visibility.Visible;
             }
         }
 

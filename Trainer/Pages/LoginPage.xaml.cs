@@ -38,8 +38,14 @@ namespace Circus.Pages
                 MessageBox.Show("Пароль неверный");
                 return;
             }
+            if(employee.PostId!=1)
+            {
+                MessageBox.Show("Это приложение доступно только для директора");
+                return;
+            }
             App.LoggedEmployee = employee;
             NavigationService.Navigate(new MainPage());
+
         }
     }
 }

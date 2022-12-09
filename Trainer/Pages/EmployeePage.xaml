@@ -5,61 +5,88 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Circus.Pages"
       mc:Ignorable="d"
-      d:DesignHeight="450"
-      d:DesignWidth="800"
+      d:DesignHeight="650"
+      d:DesignWidth="1155"
       Title="EmployeePage">
 
-    <Grid>
+    <Grid Background="Gray" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <StackPanel>
-            <TextBlock Text="Фамилия" />
-            <TextBox Text="{Binding LastName}"
+        
+        <StackPanel HorizontalAlignment="Left" Width="500" Margin="10 50">
+
+
+            <TextBlock Text="ФИО" Margin="1" FontSize="15"/>
+            <TextBox  Margin="1" Text="{Binding FullName}"
                      MaxLength="50"
-                     PreviewTextInput="FullName_PreviewTextInput" />
-            <TextBlock Text="Имя" />
-            <TextBox Text="{Binding FirstName}"
-                     MaxLength="50"
-                     PreviewTextInput="FullName_PreviewTextInput" />
-            <TextBlock Text="Отчество" />
-            <TextBox Text="{Binding Patronymic}"
-                     MaxLength="50"
-                     PreviewTextInput="FullName_PreviewTextInput" />
-            <TextBlock Text="Телефон" />
-            <TextBox Text="{Binding Phone}"
+                     PreviewTextInput="FullName_PreviewTextInput" FontSize="15"/>
+            <TextBlock Margin="1"  Text="Телефон" FontSize="15"/>
+            <TextBox  Margin="1" Text="{Binding Phone}"
                      MaxLength="11"
-                     PreviewTextInput="Digits_PreviewTextInput" />
-            <TextBlock Text="Адрес" />
-            <TextBox Text="{Binding Address}"
-                     MaxLength="150" />
-            <TextBlock Text="Должность" />
-            <ComboBox x:Name="CBPosts"
+                     PreviewTextInput="Digits_PreviewTextInput" FontSize="15"/>
+            <TextBlock  Margin="1" Text="Адрес" FontSize="15"/>
+            <TextBox  Margin="1" Text="{Binding Address}"
+                     MaxLength="150" FontSize="15"/>
+            <TextBlock Margin="1"  Text="Должность" FontSize="15"/>
+            <ComboBox Margin="1"  x:Name="CBPosts"
                       DisplayMemberPath="Name"
-                      SelectedItem="{Binding Post}" />
-            <TextBlock Text="День рождения" />
-            <DatePicker SelectedDate="{Binding Birthday}" />
-            <TextBlock Text="Зарплата" />
-            <TextBox Text="{Binding Salary}"
+                      SelectedItem="{Binding Post}" FontSize="15"/>
+            <TextBlock Margin="1"  Text="День рождения" FontSize="15"/>
+            <DatePicker  Margin="1" SelectedDate="{Binding Birthday}" FontSize="15"/>
+            <TextBlock  Margin="1" Text="Зарплата" FontSize="15"/>
+            <TextBox  Margin="1" Text="{Binding Salary}"
                      MaxLength="7"
-                     PreviewTextInput="Digits_PreviewTextInput" />
-            <TextBlock Text="Пароль" />
-            <TextBox Text="{Binding Password}"
-                     MaxLength="50" />
-            <Button x:Name="BSave"
-                    Content="Сохранить"
-                    Click="BSave_Click" />
-            <Button x:Name="BCancel"
+                     PreviewTextInput="Digits_PreviewTextInput" FontSize="15"/>
+            <TextBlock  Margin="1" Text="Пароль" FontSize="15"/>
+            <TextBox  Margin="1" Text="{Binding Password}"
+                     MaxLength="50" FontSize="15"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BCancel" VerticalAlignment="Top" Margin="0 8"
                     Content="Отмена"
+                    Background="IndianRed" Foreground="Black"
+                    Height="40"
+                    HorizontalAlignment="Left"
+                    Width="150"
+                    FontSize="20"
                     Click="BCancel_Click" />
+                <Button x:Name="BSave"
+                        VerticalAlignment="Top" Margin="8"
+                    Content="Сохранить" HorizontalAlignment="Right"
+                    Background="LightGreen" Foreground="Black"
+                    Height="40"
+                    Width="170"
+                    FontSize="20"
+                    Click="BSave_Click" />
+                
+            </StackPanel>
+            <GroupBox FontSize="16" HorizontalAlignment="Left" Width="400" Height="60" Foreground="White" >
+                <GroupBox.Header>
+                    Примечание
+                </GroupBox.Header>
+
+                <TextBlock FontSize="12" 
+                           FontStretch="Expanded"
+                           Foreground="White"
+                           TextWrapping="Wrap">
+                    При добавлении нового сотрудника 
+                    удостоверьтесь в том, что все данные записаны
+                </TextBlock>
+            </GroupBox>
         </StackPanel>
-        <StackPanel Grid.Column="1">
-            <Image Height="300"
-                   Source="{Binding Image}" />
+        <StackPanel Margin=" 0" Width="400" Grid.Column="1">
+            <Image Height="250" Margin="0 50"
+                   Source="{Binding Image}" RenderTransformOrigin="0.502,1.014" />
             <Button x:Name="BEditImage"
+                    Background="White" Foreground="Black"
+                    Margin="10 30"
+                    Width="300"
+                    Height="40"
+                    FontSize="20"
                     Content="Изменить фото"
                     Click="BEditImage_Click" />
         </StackPanel>
+        
     </Grid>
 </Page>

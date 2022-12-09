@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HR_MANAGER.Model
+namespace HR_Manager.Model
 {
     using System;
     using System.Collections.Generic;

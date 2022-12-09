@@ -5,13 +5,16 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Circus.Model;
 
-namespace Trainer
+namespace Circus
 {
     /// <summary>
-    /// Логика взаимодействия для App.xaml
+    /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
+        public static circusKAMALOV326Entities1 DB = new circusKAMALOV326Entities1();
+        public static Employee LoggedEmployee;
     }
 }

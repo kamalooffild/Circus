@@ -9,16 +9,45 @@
       d:DesignWidth="800"
       Title="LoginPage">
 
-    <Grid>
-        <StackPanel VerticalAlignment="Center"
+    <Grid Background="Gray">
+        <StackPanel Orientation="Vertical">
+            <StackPanel 
+                    Grid.ColumnSpan="2"
+                    Height="50">
+                <TextBlock Text="B  Y  B  Y          C I R C U S"
+                       HorizontalAlignment="Center"
+                       FontSize="30" 
+                       Foreground="Black"/>
+
+            </StackPanel>
+        </StackPanel>
+        
+        <StackPanel Background="Gray" 
+                    
+                    VerticalAlignment="Center"
                     HorizontalAlignment="Center"
-                    Width="250">
-            <TextBlock Text="Телефон" />
-            <TextBox x:Name="TBPhone" />
-            <TextBlock Text="Пароль" />
-            <PasswordBox x:Name="PBPassword" />
+                    Width="350"
+                    
+                    Height="220">
+            <TextBlock  Margin="10 2" Text="Телефон" FontSize="20" Foreground="Black" />
+            <Border CornerRadius="7" Background="White" BorderBrush="Black" BorderThickness="1"
+        VerticalAlignment="Center" UseLayoutRounding="True">
+                <TextBox x:Name="TBPhone" Height="30" Width="330" BorderThickness="0"/>
+            </Border>
+
+
+            <TextBlock Margin="10 6" FontSize="20" Text="Пароль" Foreground="Black"/>
+            <Border CornerRadius="7" Background="White" BorderBrush="Black" BorderThickness="1"
+        VerticalAlignment="Center" UseLayoutRounding="True">
+                <PasswordBox x:Name="PBPassword"  Height="30" Width="330"  BorderThickness="0"/>
+            </Border>
+            
             <Button x:Name="BLogin"
                     Content="Войти"
+                    Background="Black" Foreground="White"
+                    Margin="10 30"
+                    Height="40"
+                    FontSize="20"
                     Click="BLogin_Click" />
         </StackPanel>
     </Grid>
